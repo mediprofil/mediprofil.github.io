@@ -9,12 +9,13 @@ const path = require('path');
 module.exports = (env, argv) => ({
   output: {
     filename: '[name].[chunkhash].js',
-    publicPath:  argv.mode === 'production' ? 'public' : ''
+    publicPath:  argv.mode === 'production' ? '/public/' : ''
   },
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'src', 'index.html'),
+      favicon: path.resolve(__dirname, 'src', 'assets', 'img', 'favicon.ico'),
       hash: argv.mode === 'production'
     }),
     new MiniCssExtractPlugin({
@@ -48,6 +49,18 @@ module.exports = (env, argv) => ({
           },
           'sass-loader',
         ],
+      },
+      {
+        test: /\.(png|svg|jpg|gif)$/,
+        use: ['file-loader'],
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf|otf)$/,
+        use: ['file-loader'],
+      },
+      {
+        test: /\.html$/i,
+        loader: 'html-loader',
       },
     ],
   },

@@ -2,7 +2,7 @@
   "name": "mediprofil.github.io",
   "version": "1.0.0",
   "description": "Mediprofil",
-  "main": "index.js",
+  "private": true,
   "scripts": {
     "start": "webpack-dev-server --mode development --open",
     "dev": "webpack --mode development",
@@ -22,6 +22,8 @@
     "clean-webpack-plugin": "^3.0.0",
     "css-loader": "^3.6.0",
     "exports-loader": "^1.1.0",
+    "file-loader": "^6.0.0",
+    "html-loader": "^1.1.0",
     "html-webpack-plugin": "^4.3.0",
     "mini-css-extract-plugin": "^0.9.0",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
@@ -35,6 +37,7 @@
     "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.14.0",
     "bootstrap": "^4.5.0",
     "jquery": "^3.5.1",
     "popper.js": "^1.16.1"
